@@ -1,5 +1,7 @@
 package concurrency;
 
+import java.util.concurrent.CompletableFuture;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("UNSAFE VERSION - RACE CONDITION");
@@ -21,5 +23,19 @@ public class Main {
         System.out.println(
                 "Final balance: $" + account.getBalance()
         );
+
+        System.out.println();
+        System.out.println("ASYNCHRONOUS EXECUTION");
+        CompletableFuture<String> summaryFuture =
+                AsyncService.generateSummaryAsync(account.getBalance());
+        System.out.println(
+                "Main thread continues working while summary runs."
+        );
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Main thread task " + i);
+            Thread.sleep(400);
+        }
+        String summary = summaryFuture.join();
+        System.out.println("ASYNC RESULT: " + summary);
     }
 }
