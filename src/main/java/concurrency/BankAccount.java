@@ -4,7 +4,7 @@ public class BankAccount {
     public BankAccount(int startingBalance) {
         this.balance = startingBalance;
     }
-    public void withdraw(int amount) {
+    public synchronized void withdraw(int amount) {
         String threadName = Thread.currentThread().getName();
         System.out.println(
                 threadName + " is attempting to withdraw $"
