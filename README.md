@@ -1,4 +1,4 @@
-# Concurrent and Asynchronous Programming
+# Assignment 1 - Concurrent and Asynchronous Programming
 ## Overview
 This project demonstrates fundamental concepts of concurrent and asynchronous programming in Java. The application uses a shared bank account to demonstrate concurrent access, a race condition, synchronization for safe access to a shared resource, and asynchronous execution using `CompletableFuture`.
 The project begins with an unsafe concurrent implementation, applies synchronization to correct the shared-resource problem, and then adds asynchronous processing.
